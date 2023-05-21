@@ -21,17 +21,24 @@ const Category = () => {
   // console.log(category);
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    
-    const matchProduct = allProducts.filter(pd => pd.category.toLowerCase === category.toLowerCase);
-    // console.log(matchProduct);
+    const matchProduct = allProducts.filter(pd => {
+      return (pd.category.toLowerCase() === category[0].toLowerCase())
+    });
+    console.log(matchProduct);
     setProducts(matchProduct);
   }, [category]);
   // console.log(products)
+
+
+  useEffect(() => {
+    console.log("changed");
+    console.log(products);
+  }, [products])
+
   return (
     <div>
       <h3>Your selected category is : {category}</h3>
-      <CategoryDetails></CategoryDetails>
-      <CategoryDetails></CategoryDetails>
+    
       
       {
         products.map(pd => <CategoryDetails product={pd}></CategoryDetails>)

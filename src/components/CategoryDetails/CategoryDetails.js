@@ -1,12 +1,14 @@
 import React from 'react';
 
 
-const CategoryDetails = (props) => {
-  // const {name} = props.product;
+const CategoryDetails = ({product}) => {
+// console.log(props.product);
+  
+  // console.log(name);
   return (
     <div>
       <h4>This is your category details</h4>
-      {/* <h6>selected product : {name}</h6> */}
+      <h6>selected product : {product?.name} </h6>
     </div>
   );
 };
